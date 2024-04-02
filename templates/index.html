@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAN APP</title>
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .btn-dark{
+            background-color: #00A86B;
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">GAN IMAGE <br>GENERATION</h1>
+    <br>
+    <br>
+    <form class="p-3 text-center" action="/predict_1", method="post", enctype="multipart/form-data">
+        <button class="btn btn-dark" type="submit">Predict Single</button>
+    </form>
+    <form class="p-3 text-center" action="/predict_mul", method="post", enctype="multipart/form-data">
+        <button class="btn btn-dark" type="submit">Predict Multiple</button>
+    </form>
+    
+</body>
+</html>
