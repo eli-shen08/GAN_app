@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAN Single Prediction</title>
+    <!-- <style>
+        /* CSS styling to set height and width of the image */
+        img {
+            height: 500px;
+            width: 600px;
+        }
+    </style> -->
+
 </head>
 <body>
     <h1 class="text-center">Single Image Prediction</h1>
+    <!-- <a class="btn btn-primary" href="/" style="margin: top 100px;margin-left: 1300px;">Go Back</a> -->
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        // Function to navigate back to index.html
+        function goBack() {
+            window.location.href = "/"; // Navigate to index.html
+        }
+    </script>
+    <div id="image-container">
+        <img src="/predict_1" alt="Predicted Image" style="height: 300px; width: 400px;">
+    </div>
 </body>
 </html>
