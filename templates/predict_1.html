@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
 
     <title>GAN Single Prediction</title>
-    <!-- <style>
-        .btn-primary{
-            background-color: #00A86B;
-            width: 150px;
-            height: 50px;
+    <style>
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
-</head> -->
-<body>
-    <h1 class="text-center">Single Image Prediction</h1>
-    <!-- <a class="btn btn-primary" href="/" style="margin: top 100px;margin-left: 500px;">Home</a> -->
+</head>
+<body style="background-color: black;">
+    <h1 class="heading1">Single Image Prediction</h1>
+    <a class="btn btn-primary" href="/" style="margin: top 100px;margin-left: 1300px;">Home</a>
     <div id="image_display">
-        <img src="/predict_1" alt="Predicted Image" width="400" height="400" class="display_image">
+    <img src="{{ url_for('static', filename='image_.png') }}" alt="Generated Image">
     </div>
-    <a href="/">Home</a>
 </body>
 </html>

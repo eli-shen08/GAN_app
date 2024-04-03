@@ -2,9 +2,18 @@ html {
     scroll-behavior: smooth;
 }
 
+.heading1{
+    color: aliceblue;
+}
+.heading2{
+    color: aliceblue;
+}
+
+
 .display_image{
     display: block;
     margin-left: 500px;
     margin-right: 500px;
 
 }
+

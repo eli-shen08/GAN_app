@@ -28,13 +28,7 @@ def generate_noise(noise,n_samples):
     return x_input
 
 
-# Function to create plot from model prediction .
-# def create_plot(examples,n):
-#     for i in range(n * n):
-#         pyplot.subplot(n, n, 1+i)
-#         pyplot.axis('off')
-#         pyplot.imshow(examples[i])
-#     pyplot.show()
+
 
 # Single image page
 @app.route("/predict_1",methods=['GET','POST'])
@@ -42,16 +36,19 @@ def predict_1():
     print(request.method)
     latent_points = generate_noise(100,49)
     X = model.predict(latent_points)
-    X = (X + 1) / 2
-    # X = create_plot(X,1)
+    X = ((X + 1) / 2) * 255
     # picking a random img index to output
     rand_idx = np.random.randint(0,49)
-    Y = X[rand_idx]
+    # Y = X[rand_idx]
     print(X[rand_idx].shape)
-    # Upscale the image by a factor of 2 using nearest neighbor interpolation
-    Y  = cv2.resize(Y, (256, 256), interpolation=cv2.INTER_NEAREST)
-    pyplot.imsave('single_predicted_image.png', Y, dpi=70)
-    return send_file('single_predicted_image.png', mimetype='image/png')
+    pil_image = cv2.resize(X[rand_idx], (256, 256), interpolation=cv2.INTER_NEAREST)
+    pil_image = Image.fromarray(pil_image.astype('uint8'))
+
+    # Save the image to the static folder
+    image_path = os.path.join("static", f"image_.png")
+    pil_image.save(image_path)
+    return render_template('predict_1.html', imgs_path=pil_image)
+
 
 
 
@@ -66,29 +63,21 @@ def predict_mul():
     print(request.method)
     latent_points = generate_noise(100,49)
     X = model.predict(latent_points)
-    X = (X + 1) / 2
+    # X = (X + 1) / 2
     X = ((X + 1) / 2) * 255
     for i in range(8):
         rand_idx = np.random.randint(0,48)
+        pil_image = cv2.resize(X[rand_idx], (128, 128), interpolation=cv2.INTER_NEAREST)
+
         # Convert the numpy array to an image
-        pil_image = Image.fromarray(X[rand_idx].astype('uint8'))
+        pil_image = Image.fromarray(pil_image.astype('uint8'))
         # Save the image to the static folder
         image_path = os.path.join("static", f"image_{i+1}.png")
         pil_image.save(image_path)
         imgs_path.append(image_path)
-
-
-    # X = create_plot(X,1)
-    # picking a random img index to output
-    # Y = X[rand_idx]
-    # print(X[rand_idx].shape)
-    # # Upscale the image by a factor of 2 using nearest neighbor interpolation
-    # Y  = cv2.resize(Y, (256, 256), interpolation=cv2.INTER_NEAREST)
-    # pyplot.imsave('single_predicted_image.png', Y, dpi=70)
-    # return send_file('single_predicted_image.png', mimetype='image/png')
     return render_template('predict_mul.html', imgs_path=imgs_path)
 
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(port=9899,debug=True)
+    app.run(port=9899,debug=False)
