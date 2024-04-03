@@ -2,7 +2,10 @@ from flask import Flask,render_template,request,send_file
 from keras.models import load_model
 from numpy.random import randn
 from matplotlib import pyplot
+from PIL import Image
 import numpy as np
+import cv2
+import os
 
 app = Flask(__name__)
 
@@ -41,16 +44,49 @@ def predict_1():
     X = model.predict(latent_points)
     X = (X + 1) / 2
     # X = create_plot(X,1)
-    Y = X[10]
-    pyplot.imsave('single_predicted_image.png', Y)
-    # random_number = np.random.randint(12)
+    # picking a random img index to output
+    rand_idx = np.random.randint(0,49)
+    Y = X[rand_idx]
+    print(X[rand_idx].shape)
+    # Upscale the image by a factor of 2 using nearest neighbor interpolation
+    Y  = cv2.resize(Y, (256, 256), interpolation=cv2.INTER_NEAREST)
+    pyplot.imsave('single_predicted_image.png', Y, dpi=70)
     return send_file('single_predicted_image.png', mimetype='image/png')
+
+
+
+
+
+
 
 # Multiple Image Page
 @app.route("/predict_mul",methods=['GET','POST'])
 def predict_mul():
-    pass
-    return render_template('predict_mul.html')
+    imgs_path = []
+    print(request.method)
+    latent_points = generate_noise(100,49)
+    X = model.predict(latent_points)
+    X = (X + 1) / 2
+    X = ((X + 1) / 2) * 255
+    for i in range(8):
+        rand_idx = np.random.randint(0,48)
+        # Convert the numpy array to an image
+        pil_image = Image.fromarray(X[rand_idx].astype('uint8'))
+        # Save the image to the static folder
+        image_path = os.path.join("static", f"image_{i+1}.png")
+        pil_image.save(image_path)
+        imgs_path.append(image_path)
+
+
+    # X = create_plot(X,1)
+    # picking a random img index to output
+    # Y = X[rand_idx]
+    # print(X[rand_idx].shape)
+    # # Upscale the image by a factor of 2 using nearest neighbor interpolation
+    # Y  = cv2.resize(Y, (256, 256), interpolation=cv2.INTER_NEAREST)
+    # pyplot.imsave('single_predicted_image.png', Y, dpi=70)
+    # return send_file('single_predicted_image.png', mimetype='image/png')
+    return render_template('predict_mul.html', imgs_path=imgs_path)
 
 
 if __name__ == "__main__":

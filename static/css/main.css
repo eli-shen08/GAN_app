@@ -1,0 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.display_image{
+    display: block;
+    margin-left: 500px;
+    margin-right: 500px;
+
+}
