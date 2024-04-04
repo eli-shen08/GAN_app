@@ -10,6 +10,7 @@ It trained for 180 epochs , each epoch had 195 batch size .
 
 
 # HOW TO USE 
+### Make sure you have a GPU in your system .
 1. Clone the repository locally gor your machine .
 2. Make sure you get such a structure .
 
