@@ -12,4 +12,5 @@ It trained for 180 epochs , each epoch had 195 batch size .
 # HOW TO USE 
 1. Clone the repository locally gor your machine .
 2. Make sure you get such a structure .
+
 ![1](https://github.com/eli-shen08/GAN_app/assets/61158656/cf1e6f00-ef10-43e7-82d5-993449bf154f)
