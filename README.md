@@ -14,3 +14,8 @@ It trained for 180 epochs , each epoch had 195 batch size .
 2. Make sure you get such a structure .
 
 ![1](https://github.com/eli-shen08/GAN_app/assets/61158656/cf1e6f00-ef10-43e7-82d5-993449bf154f)
+
+3. Install requirements.txt with pip . After that you are pretty much set up.
+4. Now all you need to do is run the app.py file and click on the link .
+   
+   ![Screenshot (2)](https://github.com/eli-shen08/GAN_app/assets/61158656/e959f3de-b455-4885-aead-305cca880883)
