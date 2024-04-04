@@ -8,6 +8,7 @@ By no means are the generated images good but sometimes they do resemble somethi
 This model was trained on google colab t4 Gpu for 2 hours approximately .
 It trained for 180 epochs , each epoch had 195 batch size .
 
+Originally on CIFAR-10 the images are of size 32 X 32 X 3 but since they are very small i had to upscale them after prediction using interpolation and then serve them in the web application .
 
 # HOW TO USE 
 ### Make sure you have a GPU in your system .
