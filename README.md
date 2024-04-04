@@ -19,3 +19,22 @@ It trained for 180 epochs , each epoch had 195 batch size .
 4. Now all you need to do is run the app.py file and click on the link .
    
    ![Screenshot (2)](https://github.com/eli-shen08/GAN_app/assets/61158656/e959f3de-b455-4885-aead-305cca880883)
+
+5. If you have done everthing correctly a new tab should open up .
+
+   ![Screenshot (3)](https://github.com/eli-shen08/GAN_app/assets/61158656/246ee354-a404-44ac-9c7c-332b95c31c96)
+
+
+6. If you want to preddict a single image click on Preict Single .
+
+   
+![Screenshot (4)](https://github.com/eli-shen08/GAN_app/assets/61158656/3a511096-1b7a-41a2-a0f8-3c7791b93f51)
+
+7. If you want to see the model generate multiple image you know what to do .
+
+   
+![Screenshot (5)](https://github.com/eli-shen08/GAN_app/assets/61158656/faa71e92-0c24-4c23-86aa-1f34a41dd128)
+
+
+Enjoy.
+Thank You
