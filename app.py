@@ -1,7 +1,6 @@
 from flask import Flask,render_template,request,send_file
 from keras.models import load_model
 from numpy.random import randn
-from matplotlib import pyplot
 from PIL import Image
 import numpy as np
 import cv2
@@ -10,7 +9,7 @@ import os
 app = Flask(__name__)
 
 
-model = load_model('generator_model_180.0.h5')
+model = load_model('E:/python/GAN_app/generator_model_180.0.h5')
 
 
 # Home page
