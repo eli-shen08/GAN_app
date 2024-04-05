@@ -37,6 +37,7 @@ Originally on CIFAR-10 the images are of size 32 X 32 X 3 but since they are ver
    
 ![Screenshot (5)](https://github.com/eli-shen08/GAN_app/assets/61158656/faa71e92-0c24-4c23-86aa-1f34a41dd128)
 
+#### If you want the model training repo let me know . 
 
 Enjoy.
 Thank You
